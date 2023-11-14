@@ -6,7 +6,7 @@ document.getElementById('kv-form').addEventListener('submit', async (event) => {
     const value = formData.get('value');
 
     try {
-        const response = await fetch('https://workers-kv-demo.berta.workers.dev', {
+        const response = await fetch('https://worker-kvpost.berta.workers.dev', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
