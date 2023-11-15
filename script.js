@@ -12,6 +12,8 @@ document.getElementById('kv-form').addEventListener('submit', async (event) => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({ key, value }),
+            mode: 'cors', // Set the CORS mode to 'cors'
+            credentials: 'same-origin', // Include credentials if needed
         });
 
         if (!response.ok) {
