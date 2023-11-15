@@ -1,26 +1,45 @@
-document.getElementById('kv-form').addEventListener('submit', async (event) => {
-    event.preventDefault();
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    margin: 50px;
+}
 
-    const formData = new FormData(event.target);
-    const key = formData.get('key');
-    const value = formData.get('value');
+h1 {
+    color: #333;
+}
 
-    try {
-        const response = await fetch('https://worker-kvpost-demo.berta.workers.dev', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ key, value }),
-        });
+#kv-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
 
-        if (!response.ok) {
-            throw new Error('Failed to store data');
-        }
+label {
+    margin: 10px 0;
+}
 
-        const result = await response.text();
-        document.getElementById('result').innerText = `Data stored successfully: ${result}`;
-    } catch (error) {
-        document.getElementById('result').innerText = `Error: ${error.message}`;
-    }
-});
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    width: 300px;
+}
+
+button[type="submit"] {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+#result {
+    margin-top: 20px;
+}
